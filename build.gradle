@@ -31,11 +31,13 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-jar {
-  manifest {
-    attributes(
-      'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-      'Main-Class': 'com.globant.interbank.InterbankApplication'
-    )
-  }
+task packageCommand(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.globant.interbank.InterbankApplication'
+    }
+    archiveFileName = "application.jar"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
 }
