@@ -17,7 +17,8 @@ public class AuthInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
         if(request.getHeader("token") != null){
             return clientAuthentication.isValidToken(request.getHeader("token"));
+        }else {
+            throw new RuntimeException();
         }
-        return false;
     }
 }
