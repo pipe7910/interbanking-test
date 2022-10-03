@@ -4,8 +4,6 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-
-import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -25,15 +23,12 @@ public class ClientAuthentication {
 
     public boolean isValidToken(String token) {
         try {
-            JWTVerifier verifier = JWT.require(algorithm)
-                    .withIssuer(issuer)
-                    .acceptExpiresAt(60)
-                    .build();
+            JWTVerifier verifier = JWT.require(algorithm).withIssuer(issuer).acceptExpiresAt(60).build();
             verifier.verify(token);
             return true;
         } catch (JWTVerificationException ex) {
             System.out.println("Verify JWT token fail: " + ex.getMessage());
         }
-        return false;
+        throw new JWTVerificationException("error");
     }
 }

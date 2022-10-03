@@ -59,9 +59,9 @@ public class ClientsController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable String id) {
         try {
-            Client clientFoud = clientsService.findById(id);
+            Client clientFound = clientsService.findById(id);
             HashMap<String, Object> response = new HashMap<>();
-            response.put("response", clientFoud);
+            response.put("response", clientFound);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
             HashMap<String, Object> response = new HashMap<>();
