@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
-
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,23 +30,23 @@ public class Client {
     @Column(name = "id", updatable = false, nullable = false)
     private String id;
 
-    @Column(name = "fullname")
+    @Column(name = "fullName")
     private String fullName;
 
-    @Column(name = "surnames")
+    @Column(name = "surNames")
     private String surNames;
 
-    @Column(name = "businessname")
+    @Column(name = "businessName")
     private String businessName;
 
-    @Column(name = "businessid")
+    @Column(name = "businessId")
     private String businessId;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name = "addres")
-    private String addres;
+    @Column(name = "address")
+    private String address;
 
     @Column(name = "phone")
     private String phone;

@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         "/actuator/health",
         "/actuator/info",
         "/docs/**",
-        "/api/swagger-ui/**",
+        "/v3/api-docs/**",
         "/auth",
         "/auth/**"
     };
