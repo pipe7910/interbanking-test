@@ -71,6 +71,7 @@ public class ClientsController implements ClientControllerDocs {
     }
 
     @GetMapping("")
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     public ResponseEntity<ApiResponseDTO<List<ClientDto>>> findClients(
         @RequestParam(name = "id", required = false) final String id,
         @RequestParam(name = "fullName", required = false) final String fullName,
