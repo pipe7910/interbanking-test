@@ -23,8 +23,9 @@ public class ClientsServiceImpl implements ClientsService {
     public void delete(final String id) throws EntityNotFoundException {
         if (clientsRepository.findById(id).isPresent()) {
             clientsRepository.deleteById(id);
+        } else {
+           throw new EntityNotFoundException("The client does not exist");
         }
-        throw new EntityNotFoundException("The client does not exist");
     }
 
     public List<Client> findByFilters(
